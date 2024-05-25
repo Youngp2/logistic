@@ -1,0 +1,55 @@
+{% extends 'base.html '%}
+{% load static %}
+
+{% block content %}
+<div class="container  shadow p-3 mb-5 rounded">
+    <a href="{% url 'adminside:all-messages'%}"><button type="button" class="btn-secondary"> << back </button></a>
+      <div class="nav navbar border">
+          <div class="row">
+              <div class="title"><h5><small>Client name: </small>{{ messages.name}}</h5></div>
+              
+          </div>
+      </div>
+      <div class="sender">
+          <h5 class="text-center">Client information</h5>
+          <table class="table">
+              <thead>
+                <tr>
+                  <td class="text-strong">Name</td>
+                  <td>{{messages.name}}</td>
+                </tr>
+                <tr>
+                  <td class="text-strong">Email</td>
+                  <td>{{messages.email}}</td>
+                </tr>
+                <tr>
+                  <td class="text-strong">Phone</td>
+                  <td>{{messages.phone}}</td>
+                </tr>
+                <tr>
+                  <td class="text-strong">Message</td>
+                  <td>{{messages.message}}</td>
+                </tr>
+                <tr>
+                  <td class="text-strong">Departure</td>
+                  <td>{{messages.departure}}</td>
+                </tr>
+                <tr>
+                  <td class="text-strong">Destination</td>
+                  <td>{{messages.departure}}</td>
+                </tr>
+                <tr>
+                  <td class="text-strong">Weight</td>
+                  <td>{{messages.weight}}</td>
+                </tr>
+                <tr>
+                  <td class="text-strong">Dimensins</td>
+                  <td>{{messages.dimensions}}</td>
+                </tr>
+              </thead>
+            </table>
+      </div>
+      <a href="{% url 'adminside:delete-message' messages.id %}"><button type="reset">Delete</button></a>
+  </div>
+
+{% endblock %}
