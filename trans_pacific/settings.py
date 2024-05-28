@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'JKASDHFOHWER09FWEFOD0DJ90ufndsoa'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -87,6 +89,8 @@ DATABASES = {
 }
 database_url = os.environ.get('DATABASE_URL')
 DATABASES['default'] = dj_database_url.parse(database_url)
+
+# DATABASES['default'] = dj_database_url.parse('postgres://trans_pacific_user:jXyGv94aY3iE6qjAR4zvwAx6M7qw094v@dpg-cp8amf8l6cac73c1fgg0-a.oregon-postgres.render.com/trans_pacific')
 
 
 # Password validation
@@ -130,6 +134,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+
+# Whitenoise configuration (if using)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 # Default primary key field type
