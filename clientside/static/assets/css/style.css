@@ -31,8 +31,8 @@ h6 {
 --------------------------------------------------------------*/
 .back-to-top {
   position: fixed;
-  visibility: hidden;
-  opacity: 0;
+  visibility: visible;
+  opacity: 1;
   left: 15px;
   bottom: 33px;
   z-index: 996;
@@ -41,7 +41,7 @@ h6 {
   height: 60px;
   border-radius: 220px;
   transition: all 0.4s;
-}
+} 
 
 .back-to-top i {
   font-size: 28px;
