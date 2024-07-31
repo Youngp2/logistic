@@ -7,7 +7,12 @@ import uuid
 
 # Create your models here.
 
-ORDERSTATUS = ((1, "Processed"), (2, "Dispatch"), (3, "En Route "), (4, "Delivered"))
+ORDERSTATUS = ((1, "Processed"),
+               (2, "Dispatch"),
+               (3, "En Route "),
+               (4, "Delivered"),
+               (5, "On Hold"),
+               (6, "Cancelled"))
 
 class user (models.Model):
     username = models.CharField(max_length=10)
@@ -52,6 +57,9 @@ class Order(models.Model):
 
     class Meta:
         ordering = ['-date_added']
+        
+    def __str__(self):
+        return f"Order {self.id} - {self.get_status_display()}"
         
         
     def generate_tracking_number(self):

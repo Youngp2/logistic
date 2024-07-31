@@ -25,8 +25,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECRET_KEY = 'JKASDHFOHWER09FWEFOD0DJ90ufndsoa'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.environ.get('DEBUG', 'False').lower() =='true'
+DEBUG = True
+# DEBUG = os.environ.get('DEBUG', 'False').lower() =='true'
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
@@ -145,3 +145,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# redirect url
+LOGIN_URL='/login/'
+LOGIN_REDIRECT_URL='/dashboard/'
